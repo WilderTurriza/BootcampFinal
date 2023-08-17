@@ -1,0 +1,21 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: bootcamp
+    ports:
+      - 3306:3306
+    networks:
+      red_prueba:
+        ipv4_address: 192.168.10.13
+networks:
+    red_prueba:
+        ipam:
+            config:
+              - subnet: 192.168.10.0/24
